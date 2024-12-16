@@ -1,17 +1,17 @@
 part of 'cubit.dart';
 
-abstract class HomepageState {}
+abstract class HomeState {}
 
-class HomepageInitial extends HomepageState {}
+class InitHomeState extends HomeState {}
 
-class HomepageError extends HomepageState {
-  final String message;
+class InputError extends HomeState {
+  final String error;
 
-  HomepageError({required this.message});
+  InputError({required this.error});
 }
 
-class HomepageSuccess extends HomepageState {
+class UserID extends HomeState {
   final String userID;
 
-  HomepageSuccess({required this.userID});
+  UserID({required this.userID});
 }
