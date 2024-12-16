@@ -28,20 +28,16 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<String> createUserID() async {
-    const String userIDKey = 'userID';
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    String? storedUserID = prefs.getString(userIDKey);
+    String? storedUserID = prefs.getString('userID');
 
     if (storedUserID != null) {
       return storedUserID;
     } else {
-      String newUserID = Random()
-          .nextInt(9999)
-          .toString();
-          
-      await prefs.setString(
-          userIDKey, newUserID); 
+      String newUserID = Random().nextInt(9999).toString();
+
+      await prefs.setString('userID', newUserID);
       return newUserID;
     }
   }
